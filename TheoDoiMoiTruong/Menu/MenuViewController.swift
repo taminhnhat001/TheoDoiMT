@@ -14,6 +14,7 @@ class MenuViewController: UIViewController {
     
     var menuArr:[Menu] = [Menu(title: "Home", img: "ic_home"),
                           Menu(title: "Sign in", img: "ic_login"),
+                          Menu(title: "Map", img: "ic_map"),
                           Menu(title: "Log out", img: "ic_logout")]
     
     override func viewDidLoad() {
@@ -37,6 +38,11 @@ extension MenuViewController: UITableViewDelegate {
         if indexPath.row == 1 {
             let sb = UIStoryboard.init(name: "Main", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "Login") as? Login
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        if indexPath.row == 2 {
+            let sb = UIStoryboard.init(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "GoogleMaps") as? GoogleMaps
             self.navigationController?.pushViewController(vc!, animated: true)
         }
     }

@@ -158,6 +158,21 @@
             </objects>
             <point key="canvasLocation" x="664" y="544"/>
         </scene>
+        <!--Google Maps-->
+        <scene sceneID="9Iy-Kx-8ob">
+            <objects>
+                <viewController storyboardIdentifier="GoogleMaps" id="D3d-Fa-3eM" customClass="GoogleMaps" customModule="TheoDoiMoiTruong" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K0D-7f-UnG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="f8K-12-TnO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hqf-5X-COW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.6376811594205" y="-889.28571428571422"/>
+        </scene>
         <!--Home-->
         <scene sceneID="D2e-Kt-MpL">
             <objects>
@@ -171,22 +186,12 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="Mro-eP-Jxl">
-                                <rect key="frame" x="191" y="830" width="32" height="32"/>
+                                <rect key="frame" x="150" y="830" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="ZDx-96-cz1"/>
                                     <constraint firstAttribute="width" constant="32" id="piW-ze-kUX"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1a-si-LHV" userLabel="Bt add">
-                                <rect key="frame" x="191" y="830" width="32" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="LHq-Yi-ZWa"/>
-                                    <constraint firstAttribute="height" constant="32" id="tWg-Ca-Fon"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="addMore:" destination="oRi-2r-AcZ" eventType="touchUpInside" id="rKI-xO-kTI"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theo dõi môi trường" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjD-A8-VHH">
                                 <rect key="frame" x="75" y="103" width="264" height="34"/>
                                 <constraints>
@@ -196,19 +201,50 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="remove" translatesAutoresizingMaskIntoConstraints="NO" id="4cu-6p-LjY">
+                                <rect key="frame" x="232" y="830" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="YCw-kd-tf8"/>
+                                    <constraint firstAttribute="height" constant="32" id="Yij-x0-l6t"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTf-QU-da6" userLabel="Bt remove">
+                                <rect key="frame" x="232" y="830" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Hvf-8y-ZjO"/>
+                                    <constraint firstAttribute="width" constant="32" id="Yrg-rZ-KWI"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="removePlace:" destination="oRi-2r-AcZ" eventType="touchUpInside" id="amo-Bg-7uh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1a-si-LHV" userLabel="Bt add">
+                                <rect key="frame" x="150" y="830" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Avm-mf-1zc"/>
+                                    <constraint firstAttribute="width" constant="32" id="ZqA-jq-nDd"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="addPlace:" destination="oRi-2r-AcZ" eventType="touchUpInside" id="ncj-KR-zVF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="z1a-si-LHV" firstAttribute="centerX" secondItem="Mro-eP-Jxl" secondAttribute="centerX" id="1KX-nE-xb8"/>
                             <constraint firstItem="QgJ-fL-8Kk" firstAttribute="top" secondItem="AjD-A8-VHH" secondAttribute="bottom" constant="10" id="2nz-2O-UQI"/>
+                            <constraint firstItem="2B0-ZC-vyW" firstAttribute="trailing" secondItem="4cu-6p-LjY" secondAttribute="trailing" constant="150" id="4F5-yP-fx4"/>
                             <constraint firstItem="AjD-A8-VHH" firstAttribute="centerX" secondItem="2B0-ZC-vyW" secondAttribute="centerX" id="5ye-bZ-qV6"/>
-                            <constraint firstItem="z1a-si-LHV" firstAttribute="centerY" secondItem="Mro-eP-Jxl" secondAttribute="centerY" id="EEx-O1-x7s"/>
+                            <constraint firstItem="z1a-si-LHV" firstAttribute="centerX" secondItem="Mro-eP-Jxl" secondAttribute="centerX" id="CqM-SN-Ti0"/>
+                            <constraint firstItem="Mro-eP-Jxl" firstAttribute="top" secondItem="QgJ-fL-8Kk" secondAttribute="bottom" constant="15" id="Fnh-h9-hDO"/>
+                            <constraint firstItem="4cu-6p-LjY" firstAttribute="centerY" secondItem="z1a-si-LHV" secondAttribute="centerY" id="KWS-zn-fbE"/>
                             <constraint firstItem="QgJ-fL-8Kk" firstAttribute="leading" secondItem="2B0-ZC-vyW" secondAttribute="leading" id="Olh-Js-Zdo"/>
-                            <constraint firstItem="Mro-eP-Jxl" firstAttribute="centerX" secondItem="2B0-ZC-vyW" secondAttribute="centerX" id="glR-1d-Iu4"/>
-                            <constraint firstItem="Mro-eP-Jxl" firstAttribute="top" secondItem="QgJ-fL-8Kk" secondAttribute="bottom" constant="15" id="jAS-PE-Dkl"/>
-                            <constraint firstItem="Mro-eP-Jxl" firstAttribute="bottom" secondItem="2B0-ZC-vyW" secondAttribute="bottom" id="pVq-kd-4ea"/>
+                            <constraint firstItem="VTf-QU-da6" firstAttribute="centerY" secondItem="4cu-6p-LjY" secondAttribute="centerY" id="Xbc-TB-8AE"/>
+                            <constraint firstItem="2B0-ZC-vyW" firstAttribute="bottom" secondItem="Mro-eP-Jxl" secondAttribute="bottom" id="eVS-NJ-vcT"/>
+                            <constraint firstItem="Mro-eP-Jxl" firstAttribute="leading" secondItem="2B0-ZC-vyW" secondAttribute="leading" constant="150" id="mZZ-JG-CDi"/>
                             <constraint firstItem="2B0-ZC-vyW" firstAttribute="trailing" secondItem="QgJ-fL-8Kk" secondAttribute="trailing" id="s1Z-1N-Bbh"/>
                             <constraint firstItem="AjD-A8-VHH" firstAttribute="top" secondItem="2B0-ZC-vyW" secondAttribute="top" constant="15" id="tps-XY-I9K"/>
+                            <constraint firstItem="z1a-si-LHV" firstAttribute="centerY" secondItem="Mro-eP-Jxl" secondAttribute="centerY" id="uDP-MB-rfr"/>
+                            <constraint firstItem="VTf-QU-da6" firstAttribute="centerX" secondItem="4cu-6p-LjY" secondAttribute="centerX" id="xNv-Av-TVK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2B0-ZC-vyW"/>
                     </view>
@@ -990,6 +1026,7 @@
         <image name="bg_Login" width="564" height="698"/>
         <image name="bg_SignUp" width="564" height="846"/>
         <image name="menu" width="32" height="32"/>
+        <image name="remove" width="32" height="32"/>
         <image name="right-arrow" width="32" height="32"/>
         <image name="sad face" width="32" height="32"/>
         <image name="search" width="32" height="32"/>

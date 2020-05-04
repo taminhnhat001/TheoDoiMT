@@ -9,4 +9,6 @@ target 'TheoDoiMoiTruong' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Charts'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 end

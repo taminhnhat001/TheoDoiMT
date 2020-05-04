@@ -86,7 +86,11 @@ class Home: UIViewController {
         AppDelegate.menu_bool = true
     }
     
-    @IBAction func addMore(_ sender: UIButton) {
+    @IBAction func addPlace(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func removePlace(_ sender: UIButton) {
         
     }
 }

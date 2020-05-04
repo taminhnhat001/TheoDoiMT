@@ -21,6 +21,7 @@
 		89F166A52444BF3800AD0E09 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F166A42444BF3800AD0E09 /* Home.swift */; };
 		89F166A72444BF8300AD0E09 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F166A62444BF8300AD0E09 /* MenuViewController.swift */; };
 		89F166A92444C21F00AD0E09 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F166A82444C21F00AD0E09 /* MenuTableViewCell.swift */; };
+		89F8C701245FCACD00FCD91E /* GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F8C700245FCACD00FCD91E /* GoogleMaps.swift */; };
 		89F9379224475EEC005EA397 /* DetailReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9379124475EEC005EA397 /* DetailReport.swift */; };
 		89FC36C22445765C00729E75 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC36C12445765C00729E75 /* Menu.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		89F166A42444BF3800AD0E09 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		89F166A62444BF8300AD0E09 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		89F166A82444C21F00AD0E09 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		89F8C700245FCACD00FCD91E /* GoogleMaps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMaps.swift; sourceTree = "<group>"; };
 		89F9379124475EEC005EA397 /* DetailReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReport.swift; sourceTree = "<group>"; };
 		89FC36C12445765C00729E75 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		BA13BEEC4660DE41787C435D /* Pods-TheoDoiMoiTruong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheoDoiMoiTruong.release.xcconfig"; path = "Target Support Files/Pods-TheoDoiMoiTruong/Pods-TheoDoiMoiTruong.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				89DCEFC8244AEE47000AADE8 /* DetailRP */,
 				893931A2243F115A00C1D417 /* AppDelegate.swift */,
 				893931A4243F115A00C1D417 /* SceneDelegate.swift */,
+				89F8C700245FCACD00FCD91E /* GoogleMaps.swift */,
 				893931AD243F115B00C1D417 /* LaunchScreen.storyboard */,
 				893931B0243F115B00C1D417 /* Info.plist */,
 				893931A8243F115A00C1D417 /* Main.storyboard */,
@@ -162,6 +165,7 @@
 				8939319C243F115A00C1D417 /* Frameworks */,
 				8939319D243F115A00C1D417 /* Resources */,
 				D43EFBA482EC905044640477 /* [CP] Embed Pods Frameworks */,
+				3E7A74F97EFCE40773F03646 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,6 +246,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3E7A74F97EFCE40773F03646 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TheoDoiMoiTruong/Pods-TheoDoiMoiTruong-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TheoDoiMoiTruong/Pods-TheoDoiMoiTruong-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheoDoiMoiTruong/Pods-TheoDoiMoiTruong-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D43EFBA482EC905044640477 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,6 +296,7 @@
 				8920E27D2445A25700622174 /* HomeTableViewCell.swift in Sources */,
 				893931A3243F115A00C1D417 /* AppDelegate.swift in Sources */,
 				89F9379224475EEC005EA397 /* DetailReport.swift in Sources */,
+				89F8C701245FCACD00FCD91E /* GoogleMaps.swift in Sources */,
 				893931A5243F115A00C1D417 /* SceneDelegate.swift in Sources */,
 				8962DB7C24485E6300698687 /* DetailRPCollectionViewCell.swift in Sources */,
 			);
