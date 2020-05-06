@@ -90,10 +90,10 @@
 				893931A2243F115A00C1D417 /* AppDelegate.swift */,
 				893931A4243F115A00C1D417 /* SceneDelegate.swift */,
 				89F8C700245FCACD00FCD91E /* GoogleMaps.swift */,
-				893931AD243F115B00C1D417 /* LaunchScreen.storyboard */,
-				893931B0243F115B00C1D417 /* Info.plist */,
 				893931A8243F115A00C1D417 /* Main.storyboard */,
+				893931AD243F115B00C1D417 /* LaunchScreen.storyboard */,
 				893931AB243F115B00C1D417 /* Assets.xcassets */,
+				893931B0243F115B00C1D417 /* Info.plist */,
 			);
 			path = TheoDoiMoiTruong;
 			sourceTree = "<group>";
