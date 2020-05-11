@@ -112,6 +112,7 @@ class DetailReport: UIViewController {
         }
     }
 
+    //Action chọn từng ngày
     @IBAction func actionThu1(_ sender: UIButton) {
         myCollectionView.reloadData()
         lblThu1.textColor = UIColor.darkText //Den
@@ -142,6 +143,7 @@ class DetailReport: UIViewController {
         viewThu1.backgroundColor = UIColor(red: 174/255, green: 171/255, blue: 171/255, alpha: 1) //Xam
     }
     
+    //Action Lịch sử
     @IBAction func actionGio(_ sender: UIButton) {
         lblGio.layer.borderColor = UIColor.darkText.cgColor
         lblNgay.layer.borderColor = UIColor.gray.cgColor
@@ -161,6 +163,7 @@ class DetailReport: UIViewController {
     }
 }
 
+//Collection View
 extension DetailReport: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
@@ -172,6 +175,7 @@ extension DetailReport: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
 }
 
+//Bấm vào cột trong biểu đồ hiển thị chỉ số trên label AQI
 extension DetailReport: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let pos = NSInteger(entry.x)
