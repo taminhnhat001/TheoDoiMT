@@ -173,6 +173,92 @@
             </objects>
             <point key="canvasLocation" x="1024.6376811594205" y="-889.28571428571422"/>
         </scene>
+        <!--Ranking-->
+        <scene sceneID="MJJ-mH-1sA">
+            <objects>
+                <viewController storyboardIdentifier="Ranking" id="6Dd-Q2-5zq" customClass="Ranking" customModule="TheoDoiMoiTruong" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2HC-97-bVA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ymp-7d-EQb" userLabel="ViewXamDate">
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13 tháng 5 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mT-RV-PaH">
+                                        <rect key="frame" x="144" y="9.5" width="126" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="JMn-Gp-S47"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.18864462837345233" green="0.32466458679429649" blue="0.45317258476040612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80012164186513302" green="0.79802669638306145" blue="0.83462017576345171" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0z0-M5-77L"/>
+                                    <constraint firstItem="3mT-RV-PaH" firstAttribute="centerX" secondItem="Ymp-7d-EQb" secondAttribute="centerX" id="1sr-2H-so8"/>
+                                    <constraint firstItem="3mT-RV-PaH" firstAttribute="centerY" secondItem="Ymp-7d-EQb" secondAttribute="centerY" id="3e1-qr-Cad"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoD-6e-YM6">
+                                <rect key="frame" x="20" y="104" width="11" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ctM-p6-LAM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa điểm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4g-MQ-sal">
+                                <rect key="frame" x="71" y="104" width="67" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Lrn-Yr-bhr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AQI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qON-iC-5Cv">
+                                <rect key="frame" x="351" y="104" width="28" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="lWK-uQ-f3b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VLT-tb-4bC">
+                                <rect key="frame" x="0.0" y="135" width="414" height="727"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="p4g-MQ-sal" firstAttribute="leading" secondItem="WoD-6e-YM6" secondAttribute="trailing" constant="40" id="1bp-76-zfu"/>
+                            <constraint firstItem="7KZ-MH-OK0" firstAttribute="trailing" secondItem="Ymp-7d-EQb" secondAttribute="trailing" id="D9m-Bm-qew"/>
+                            <constraint firstItem="WoD-6e-YM6" firstAttribute="top" secondItem="Ymp-7d-EQb" secondAttribute="bottom" constant="20" id="HT9-U1-gDW"/>
+                            <constraint firstItem="7KZ-MH-OK0" firstAttribute="trailing" secondItem="qON-iC-5Cv" secondAttribute="trailing" constant="35" id="JeI-9a-8g5"/>
+                            <constraint firstItem="qON-iC-5Cv" firstAttribute="centerY" secondItem="WoD-6e-YM6" secondAttribute="centerY" id="Le2-yc-igO"/>
+                            <constraint firstItem="Ymp-7d-EQb" firstAttribute="leading" secondItem="7KZ-MH-OK0" secondAttribute="leading" id="T2G-bz-Uhy"/>
+                            <constraint firstItem="7KZ-MH-OK0" firstAttribute="bottom" secondItem="VLT-tb-4bC" secondAttribute="bottom" id="lJ6-BG-PCh"/>
+                            <constraint firstItem="Ymp-7d-EQb" firstAttribute="top" secondItem="7KZ-MH-OK0" secondAttribute="top" id="lcW-K7-h7F"/>
+                            <constraint firstItem="VLT-tb-4bC" firstAttribute="leading" secondItem="7KZ-MH-OK0" secondAttribute="leading" id="mwc-VF-Bte"/>
+                            <constraint firstItem="7KZ-MH-OK0" firstAttribute="trailing" secondItem="VLT-tb-4bC" secondAttribute="trailing" id="t3w-BP-yl9"/>
+                            <constraint firstItem="WoD-6e-YM6" firstAttribute="leading" secondItem="7KZ-MH-OK0" secondAttribute="leading" constant="20" id="uIV-iz-cd5"/>
+                            <constraint firstItem="p4g-MQ-sal" firstAttribute="centerY" secondItem="WoD-6e-YM6" secondAttribute="centerY" id="wLW-EM-yuQ"/>
+                            <constraint firstItem="VLT-tb-4bC" firstAttribute="top" secondItem="WoD-6e-YM6" secondAttribute="bottom" constant="10" id="zQv-ne-cTO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7KZ-MH-OK0"/>
+                    </view>
+                    <connections>
+                        <outlet property="myTableRanking" destination="VLT-tb-4bC" id="6bq-Ky-mqX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DsN-jP-Tow" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1760.8695652173915" y="-889.28571428571422"/>
+        </scene>
         <!--Home-->
         <scene sceneID="D2e-Kt-MpL">
             <objects>
@@ -1022,14 +1108,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="32" height="32"/>
-        <image name="bg_Login" width="564" height="698"/>
-        <image name="bg_SignUp" width="564" height="846"/>
-        <image name="menu" width="32" height="32"/>
-        <image name="remove" width="32" height="32"/>
-        <image name="right-arrow" width="32" height="32"/>
-        <image name="sad face" width="32" height="32"/>
-        <image name="search" width="32" height="32"/>
-        <image name="water" width="32" height="32"/>
+        <image name="add" width="16" height="16"/>
+        <image name="bg_Login" width="282" height="349"/>
+        <image name="bg_SignUp" width="282" height="423"/>
+        <image name="menu" width="16" height="16"/>
+        <image name="remove" width="16" height="16"/>
+        <image name="right-arrow" width="16" height="16"/>
+        <image name="sad face" width="16" height="16"/>
+        <image name="search" width="16" height="16"/>
+        <image name="water" width="16" height="16"/>
     </resources>
 </document>

@@ -12,10 +12,11 @@ class MenuViewController: UIViewController {
 
     @IBOutlet weak var menu_tableView: UITableView!
     
-    var menuArr:[Menu] = [Menu(title: "Home", img: "ic_home"),
-                          Menu(title: "Sign in", img: "ic_login"),
-                          Menu(title: "Map", img: "ic_map"),
-                          Menu(title: "Log out", img: "ic_logout")]
+    var menuArr:[Menu] = [Menu(title: "Trang chủ", img: "ic_home"),
+                          Menu(title: "Đăng nhập", img: "ic_login"),
+                          Menu(title: "Bản đồ", img: "ic_map"),
+                          Menu(title: "Xếp hạng", img: "ic_ranking"),
+                          Menu(title: "Đăng xuất", img: "ic_logout")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,11 @@ extension MenuViewController: UITableViewDelegate {
         if indexPath.row == 2 {
             let sb = UIStoryboard.init(name: "Main", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "GoogleMaps") as? GoogleMaps
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        if indexPath.row == 3 {
+            let sb = UIStoryboard.init(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "Ranking") as? Ranking
             self.navigationController?.pushViewController(vc!, animated: true)
         }
     }
