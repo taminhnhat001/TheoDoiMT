@@ -205,22 +205,99 @@ extension Home: UITableViewDataSource {
             cell.lblThu1.text = arrThongSo3Ngay[indexPath.row].thu1
             cell.lblThu2.text = arrThongSo3Ngay[indexPath.row].thu2
             cell.lblThu3.text = arrThongSo3Ngay[indexPath.row].thu3
-            cell.lblAQI_1.text = String(arrThongSo3Ngay[indexPath.row].aqi_thu1 ?? 0)
-            cell.lblAQI_2.text = String(arrThongSo3Ngay[indexPath.row].aqi_thu2 ?? 0)
-            cell.lblAQI_3.text = String(arrThongSo3Ngay[indexPath.row].aqi_thu3 ?? 0)
+            //Tuỳ vào AQI1 khác nahu mà hiển thị text và background khác nhau
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu1! > 0 && arrThongSo3Ngay[indexPath.row].aqi_thu1! <= 50) {
+                cell.lblAQI_1.text = "0 - 50"
+                cell.lblAQI_1.backgroundColor = UIColor(red: 174/255, green: 231/255, blue: 102/255, alpha: 1) //Xanh la cay nhat.
+            }
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu1! > 50 && arrThongSo3Ngay[indexPath.row].aqi_thu1! <= 100) {
+                cell.lblAQI_1.text = "51 - 100"
+                cell.lblAQI_1.backgroundColor = UIColor(red: 248/255, green: 217/255, blue: 76/255, alpha: 1) //Vang` nhat.
+            }
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu1! > 100 && arrThongSo3Ngay[indexPath.row].aqi_thu1! <= 150) {
+                cell.lblAQI_1.text = "101 - 150"
+                cell.lblAQI_1.backgroundColor = UIColor(red: 232/255, green: 154/255, blue: 85/255, alpha: 1) //Cam nhat.
+            }
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu1! > 150) {
+                cell.lblAQI_1.text = "150 - 200"
+                cell.lblAQI_1.backgroundColor = UIColor(red: 224/255, green: 155/255, blue: 155/255, alpha: 1) //Do nhat.
+            }
+            
+            //Tuỳ vào AQI2 khác nahu mà hiển thị text và background khác nhau
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu2! > 0 && arrThongSo3Ngay[indexPath.row].aqi_thu2! <= 50) {
+                cell.lblAQI_2.text = "0 - 50"
+                cell.lblAQI_2.backgroundColor = UIColor(red: 174/255, green: 231/255, blue: 102/255, alpha: 1) //Xanh la cay nhat.
+            }
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu2! > 50 && arrThongSo3Ngay[indexPath.row].aqi_thu2! <= 100) {
+                cell.lblAQI_2.text = "51 - 100"
+                cell.lblAQI_2.backgroundColor = UIColor(red: 248/255, green: 217/255, blue: 76/255, alpha: 1) //Vang` nhat.
+            }
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu2! > 100 && arrThongSo3Ngay[indexPath.row].aqi_thu2! <= 150) {
+                cell.lblAQI_2.text = "101 - 150"
+                cell.lblAQI_2.backgroundColor = UIColor(red: 232/255, green: 154/255, blue: 85/255, alpha: 1) //Cam nhat.
+            }
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu2! > 150) {
+                cell.lblAQI_2.text = "150 - 200"
+                cell.lblAQI_2.backgroundColor = UIColor(red: 224/255, green: 155/255, blue: 155/255, alpha: 1) //Do nhat.
+            }
+            
+            //Tuỳ vào AQI3 khác nahu mà hiển thị text và background khác nhau
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu3! > 0 && arrThongSo3Ngay[indexPath.row].aqi_thu3! <= 50) {
+                cell.lblAQI_3.text = "0 - 50"
+                cell.lblAQI_3.backgroundColor = UIColor(red: 174/255, green: 231/255, blue: 102/255, alpha: 1) //Xanh la cay nhat.
+            }
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu3! > 50 && arrThongSo3Ngay[indexPath.row].aqi_thu3! <= 100) {
+                cell.lblAQI_3.text = "51 - 100"
+                cell.lblAQI_3.backgroundColor = UIColor(red: 248/255, green: 217/255, blue: 76/255, alpha: 1) //Vang` nhat.
+            }
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu3! > 100 && arrThongSo3Ngay[indexPath.row].aqi_thu3! <= 150) {
+                cell.lblAQI_3.text = "101 - 150"
+                cell.lblAQI_3.backgroundColor = UIColor(red: 232/255, green: 154/255, blue: 85/255, alpha: 1) //Cam nhat.
+            }
+            if (arrThongSo3Ngay[indexPath.row].aqi_thu3! > 150) {
+                cell.lblAQI_3.text = "150 - 200"
+                cell.lblAQI_3.backgroundColor = UIColor(red: 224/255, green: 155/255, blue: 155/255, alpha: 1) //Do nhat.
+            }
+//            cell.lblAQI_1.text = String(arrThongSo3Ngay[indexPath.row].aqi_thu1 ?? 0)
+//            cell.lblAQI_2.text = String(arrThongSo3Ngay[indexPath.row].aqi_thu2 ?? 0)
+//            cell.lblAQI_3.text = String(arrThongSo3Ngay[indexPath.row].aqi_thu3 ?? 0)
             cell.lblNhietDo_1.text = String(arrThongSo3Ngay[indexPath.row].nhietdo_thu1 ?? 0)
             cell.lblNhietDo_2.text = String(arrThongSo3Ngay[indexPath.row].nhietdo_thu2 ?? 0)
             cell.lblNhietDo_3.text = String(arrThongSo3Ngay[indexPath.row].nhietdo_thu3 ?? 0)
             cell.lblDoAm_1.text = String(arrThongSo3Ngay[indexPath.row].doam_thu1 ?? 0)
             cell.lblDoAm_2.text = String(arrThongSo3Ngay[indexPath.row].doam_thu2 ?? 0)
             cell.lblDoAm_3.text = String(arrThongSo3Ngay[indexPath.row].doam_thu3 ?? 0)
-            
             if arrThongSoGio[indexPath.row].distric == arrThongSo3Ngay[indexPath.row].distric && arrThongSoGio[indexPath.row].province == arrThongSo3Ngay[indexPath.row].province {
                 cell.lblDistrict.text = arrThongSo3Ngay[indexPath.row].distric
                 cell.lblProvince.text = arrThongSo3Ngay[indexPath.row].province
                 cell.lblNhietDoGio.text = String(arrThongSoGio[indexPath.row].nhietdo ?? 0)
                 cell.lblDoAmGio.text = String(arrThongSoGio[indexPath.row].doam ?? 0)
                 cell.lblAQIGio.text = String(arrThongSoGio[indexPath.row].aqi ?? 0)
+                //Tuỳ vào AQI mà từng view màu, ảnh, label nhận xét sẽ khác
+                if (arrThongSoGio[indexPath.row].aqi! > 0 && arrThongSoGio[indexPath.row].aqi! <= 50) {
+                    cell.viewNhat.backgroundColor = UIColor(red: 174/255, green: 231/255, blue: 102/255, alpha: 1) //Xanh la cay nhat.
+                    cell.viewDam.backgroundColor = UIColor(red: 155/255, green: 216/255, blue: 77/255, alpha: 1) //Xanh la cay dam.
+                    cell.viewFace.image = UIImage(named: "ic_happy")
+                    cell.lblNhanXet.text = "Tốt"
+                }
+                if (arrThongSoGio[indexPath.row].aqi! > 50 && arrThongSoGio[indexPath.row].aqi! <= 100) {
+                    cell.viewNhat.backgroundColor = UIColor(red: 248/255, green: 217/255, blue: 76/255, alpha: 1) //Vang` nhat.
+                    cell.viewDam.backgroundColor = UIColor(red: 245/255, green: 207/255, blue: 56/255, alpha: 1) //Vang` dam.
+                    cell.viewFace.image = UIImage(named: "ic_normal")
+                    cell.lblNhanXet.text = "Trung Bình"
+                }
+                if (arrThongSoGio[indexPath.row].aqi! > 100 && arrThongSoGio[indexPath.row].aqi! <= 150) {
+                    cell.viewNhat.backgroundColor = UIColor(red: 232/255, green: 154/255, blue: 85/255, alpha: 1) //Cam nhat.
+                    cell.viewDam.backgroundColor = UIColor(red: 230/255, green: 142/255, blue: 69/255, alpha: 1) //Cam dam.
+                    cell.viewFace.image = UIImage(named: "ic_sad")
+                    cell.lblNhanXet.text = "Cao"
+                }
+                if (arrThongSoGio[indexPath.row].aqi! > 150) {
+                    cell.viewNhat.backgroundColor = UIColor(red: 224/255, green: 155/255, blue: 155/255, alpha: 1) //Do nhat.
+                    cell.viewDam.backgroundColor = UIColor(red: 228/255, green: 41/255, blue: 60/255, alpha: 1) //Do dam.
+                    cell.viewFace.image = UIImage(named: "ic_mask")
+                    cell.lblNhanXet.text = "Nguy Hiểm"
+                }
             }
             return cell
         }
