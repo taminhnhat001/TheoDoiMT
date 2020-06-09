@@ -92,11 +92,9 @@ class Home: UIViewController {
     }
     
     @IBAction func addPlace(_ sender: UIButton) {
-        
-    }
-    
-    @IBAction func removePlace(_ sender: UIButton) {
-        
+        let sb = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "Area") as? Area
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     func getThongSo3Ngay() {
@@ -122,9 +120,6 @@ class Home: UIViewController {
                         self.getThongSoGio()
                         
                     }
-                    //                    DispatchQueue.main.async {
-                    //                        self.myTableHome.reloadData()
-                    //                    }
                 }
                 catch {
                     print (error)
