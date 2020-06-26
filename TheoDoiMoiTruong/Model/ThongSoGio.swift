@@ -14,6 +14,10 @@ public class ThongSoGio {
     var nhietdo:Int?
     var doam:Int?
     var aqi:Int?
+    var so2:Int?
+    var co2:Int?
+    var o3:Int?
+    var co:Int?
     
     init(dic: [String: Any]) {
         self.province = dic["province"] as? String
@@ -21,5 +25,9 @@ public class ThongSoGio {
         self.nhietdo = dic["nhietdo"] as? Int
         self.doam = dic["doam"] as? Int
         self.aqi = dic["aqi"] as? Int
+        self.so2 = dic["so2"] as? Int
+        self.co2 = dic["co2"] as? Int
+        self.o3 = dic["o3"] as? Int
+        self.co = dic["co"] as? Int
     }
 }

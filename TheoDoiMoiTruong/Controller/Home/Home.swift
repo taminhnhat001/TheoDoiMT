@@ -8,6 +8,19 @@
 
 import UIKit
 
+var curDistrict:String = ""
+var curProvince:String = ""
+var curAQI:Int = 0
+var curNhietDo:Int = 0
+var curDoAm:Int = 0
+var curSO2:Int = 0
+var curCO2:Int = 0
+var curO3:Int = 0
+var curCO:Int = 0
+var curNgay1:String = "" //1 ngày trước ngày hiện tại
+var curNgay2:String = "" //2 ngày trước ngày hiện tại
+var curNgay3:String = "" //3 ngày trước ngày hiện tại
+
 class Home: UIViewController {
 
     var menu_vc: MenuViewController!
@@ -75,7 +88,7 @@ class Home: UIViewController {
     func show_menu() {
         //self.menu_vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         UIView.animate(withDuration: 0.5) {
-            self.menu_vc.view.frame = CGRect(x: 0, y: 90, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            self.menu_vc.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             self.addChild(self.menu_vc)
             self.view.addSubview(self.menu_vc.view)
             AppDelegate.menu_bool = false
@@ -84,7 +97,7 @@ class Home: UIViewController {
     
     func close_menu() {
         UIView.animate(withDuration: 0.5, animations: {
-            self.menu_vc.view.frame = CGRect(x: -UIScreen.main.bounds.width, y: 90, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            self.menu_vc.view.frame = CGRect(x: -UIScreen.main.bounds.width, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         }) { (finished) in
             self.menu_vc.view.removeFromSuperview()
         }
@@ -168,6 +181,19 @@ extension Home: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        curDistrict = arrThongSoGio[indexPath.row].distric ?? ""
+        curProvince = arrThongSoGio[indexPath.row].province ?? ""
+        curAQI = arrThongSoGio[indexPath.row].aqi ?? 0
+        curNhietDo = arrThongSoGio[indexPath.row].nhietdo ?? 0
+        curDoAm = arrThongSoGio[indexPath.row].doam ?? 0
+        curSO2 = arrThongSoGio[indexPath.row].so2 ?? 0
+        curCO2 = arrThongSoGio[indexPath.row].co2 ?? 0
+        curO3 = arrThongSoGio[indexPath.row].o3 ?? 0
+        curCO = arrThongSoGio[indexPath.row].co ?? 0
+        curNgay1 = arrThongSo3Ngay[indexPath.row].thu1 ?? ""
+        curNgay2 = arrThongSo3Ngay[indexPath.row].thu2 ?? ""
+        curNgay3 = arrThongSo3Ngay[indexPath.row].thu3 ?? ""
+        
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DetailReport") as? DetailReport
         self.navigationController?.pushViewController(vc!, animated: true)
@@ -253,21 +279,18 @@ extension Home: UITableViewDataSource {
                 cell.lblAQI_3.text = "150 - 200"
                 cell.lblAQI_3.backgroundColor = UIColor(red: 224/255, green: 155/255, blue: 155/255, alpha: 1) //Do nhat.
             }
-//            cell.lblAQI_1.text = String(arrThongSo3Ngay[indexPath.row].aqi_thu1 ?? 0)
-//            cell.lblAQI_2.text = String(arrThongSo3Ngay[indexPath.row].aqi_thu2 ?? 0)
-//            cell.lblAQI_3.text = String(arrThongSo3Ngay[indexPath.row].aqi_thu3 ?? 0)
-            cell.lblNhietDo_1.text = String(arrThongSo3Ngay[indexPath.row].nhietdo_thu1 ?? 0)
-            cell.lblNhietDo_2.text = String(arrThongSo3Ngay[indexPath.row].nhietdo_thu2 ?? 0)
-            cell.lblNhietDo_3.text = String(arrThongSo3Ngay[indexPath.row].nhietdo_thu3 ?? 0)
-            cell.lblDoAm_1.text = String(arrThongSo3Ngay[indexPath.row].doam_thu1 ?? 0)
-            cell.lblDoAm_2.text = String(arrThongSo3Ngay[indexPath.row].doam_thu2 ?? 0)
-            cell.lblDoAm_3.text = String(arrThongSo3Ngay[indexPath.row].doam_thu3 ?? 0)
+            cell.lblNhietDo_1.text = String(arrThongSo3Ngay[indexPath.row].nhietdo_thu1 ?? 0) + "°C"
+            cell.lblNhietDo_2.text = String(arrThongSo3Ngay[indexPath.row].nhietdo_thu2 ?? 0) + "°C"
+            cell.lblNhietDo_3.text = String(arrThongSo3Ngay[indexPath.row].nhietdo_thu3 ?? 0) + "°C"
+            cell.lblDoAm_1.text = String(arrThongSo3Ngay[indexPath.row].doam_thu1 ?? 0) + "%"
+            cell.lblDoAm_2.text = String(arrThongSo3Ngay[indexPath.row].doam_thu2 ?? 0) + "%"
+            cell.lblDoAm_3.text = String(arrThongSo3Ngay[indexPath.row].doam_thu3 ?? 0) + "%"
             if arrThongSoGio[indexPath.row].distric == arrThongSo3Ngay[indexPath.row].distric && arrThongSoGio[indexPath.row].province == arrThongSo3Ngay[indexPath.row].province {
                 cell.lblDistrict.text = arrThongSo3Ngay[indexPath.row].distric
                 cell.lblProvince.text = arrThongSo3Ngay[indexPath.row].province
-                cell.lblNhietDoGio.text = String(arrThongSoGio[indexPath.row].nhietdo ?? 0)
-                cell.lblDoAmGio.text = String(arrThongSoGio[indexPath.row].doam ?? 0)
-                cell.lblAQIGio.text = String(arrThongSoGio[indexPath.row].aqi ?? 0)
+                cell.lblNhietDoGio.text = String(arrThongSoGio[indexPath.row].nhietdo ?? 0) + "°C"
+                cell.lblDoAmGio.text = String(arrThongSoGio[indexPath.row].doam ?? 0) + "%"
+                cell.lblAQIGio.text = String(arrThongSoGio[indexPath.row].aqi ?? 0) + " AQI"
                 //Tuỳ vào AQI mà từng view màu, ảnh, label nhận xét sẽ khác
                 if (arrThongSoGio[indexPath.row].aqi! > 0 && arrThongSoGio[indexPath.row].aqi! <= 50) {
                     cell.viewNhat.backgroundColor = UIColor(red: 174/255, green: 231/255, blue: 102/255, alpha: 1) //Xanh la cay nhat.

@@ -21,15 +21,49 @@ class DetailReport: UIViewController {
     @IBOutlet weak var myCollectionView: UICollectionView!
     @IBOutlet weak var myBarChartView: BarChartView!
     
+    //Địa điểm
+    @IBOutlet weak var lblDistrict: UILabel!
+    @IBOutlet weak var lblProvince: UILabel!
+    
+    //Thông số giờ
+    @IBOutlet weak var view1_1: UIView!
+    @IBOutlet weak var view1_2: UIView!
+    @IBOutlet weak var imgFace: UIImageView!
+    @IBOutlet weak var lblAQIGio: UILabel!
+    @IBOutlet weak var lblAdvice: UILabel!
+    @IBOutlet weak var lblNhietDoGio: UILabel!
+    @IBOutlet weak var lblDoAmGio: UILabel!
+    @IBOutlet weak var lblGioThongSo: UILabel!
+    
+    //Khuyến nghị về sức khoẻ
+    @IBOutlet weak var imgKhuyenNghi_1: UIImageView!
+    @IBOutlet weak var imgKhuyenNghi_2: UIImageView!
+    @IBOutlet weak var imgKhuyenNghi_3: UIImageView!
+    @IBOutlet weak var imgKhuyenNghi_4: UIImageView!
+    @IBOutlet weak var viewLineKhuyenNghi: UIView!
+    @IBOutlet weak var lblKhuyenNghi: UILabel!
+    @IBOutlet weak var btKhuyenNghi_3: UIButton!
+    @IBOutlet weak var btKhuyenNghi_4: UIButton!
+    
+    //Chất gây ô nhiễm
+    @IBOutlet weak var lblValueSO2: UILabel!
+    @IBOutlet weak var lblValueCO2: UILabel!
+    @IBOutlet weak var lblValueO3: UILabel!
+    @IBOutlet weak var lblValueCO: UILabel!
+    
+    //3 ngày trước đấy
     @IBOutlet weak var lblThu1: UILabel!
     @IBOutlet weak var viewThu1: UIView!
     @IBOutlet weak var lblThu2: UILabel!
     @IBOutlet weak var viewThu2: UIView!
     @IBOutlet weak var lblThu3: UILabel!
     @IBOutlet weak var viewThu3: UIView!
+    
+    //Lịch sử
     @IBOutlet weak var lblGio: UILabel!
     @IBOutlet weak var lblNgay: UILabel!
     
+    //Đồ thị
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblAQI: UILabel!
     
@@ -38,6 +72,76 @@ class DetailReport: UIViewController {
         myCollectionView.delegate = self
         myCollectionView.dataSource = self
         myBarChartView.delegate = self
+        //Hiển thị thông số giờ
+        lblDistrict.text = curDistrict
+        lblProvince.text = curProvince
+        lblNhietDoGio.text = String(curNhietDo) + "°C"
+        lblDoAmGio.text = String(curDoAm) + "%" 
+        lblAQIGio.text = String(curAQI)
+        //Tuỳ vào AQI mà từng view màu, ảnh, label nhận xét sẽ khác
+        if (curAQI > 0 && curAQI <= 50) {
+            view1_2.backgroundColor = UIColor(red: 174/255, green: 231/255, blue: 102/255, alpha: 1) //Xanh la cay nhat.
+            view1_1.backgroundColor = UIColor(red: 155/255, green: 216/255, blue: 77/255, alpha: 1) //Xanh la cay dam.
+            imgFace.image = UIImage(named: "ic_happy")
+            lblAdvice.text = "Tốt"
+            imgKhuyenNghi_1.image = UIImage(named: "ic_open_window")
+            imgKhuyenNghi_2.image = UIImage(named: "ic_bike_green")
+            imgKhuyenNghi_3.isHidden = true
+            imgKhuyenNghi_4.isHidden = true
+            btKhuyenNghi_3.isHidden = true
+            btKhuyenNghi_4.isHidden = true
+            viewLineKhuyenNghi.isHidden = true
+            
+            lblKhuyenNghi.text = "Mở cửa sổ để đưa không khí sạch và trong lành vào nhà"
+        }
+        if (curAQI > 50 && curAQI <= 100) {
+            view1_2.backgroundColor = UIColor(red: 248/255, green: 217/255, blue: 76/255, alpha: 1) //Vang` nhat.
+            view1_1.backgroundColor = UIColor(red: 245/255, green: 207/255, blue: 56/255, alpha: 1) //Vang` dam.
+            imgFace.image = UIImage(named: "ic_normal")
+            lblAdvice.text = "Trung Bình"
+            imgKhuyenNghi_1.image = UIImage(named: "ic_close_window")
+            imgKhuyenNghi_2.image = UIImage(named: "ic_bike_orange")
+            imgKhuyenNghi_3.isHidden = true
+            imgKhuyenNghi_4.isHidden = true
+            btKhuyenNghi_3.isHidden = true
+            btKhuyenNghi_4.isHidden = true
+            viewLineKhuyenNghi.isHidden = true
+            lblKhuyenNghi.text = "Đóng cửa sổ để tránh không khí bẩn bên ngoài"
+        }
+        if (curAQI > 100 && curAQI <= 150) {
+            view1_2.backgroundColor = UIColor(red: 232/255, green: 154/255, blue: 85/255, alpha: 1) //Cam nhat.
+            view1_1.backgroundColor = UIColor(red: 230/255, green: 142/255, blue: 69/255, alpha: 1) //Cam dam.
+            imgFace.image = UIImage(named: "ic_sad")
+            lblAdvice.text = "Không tốt cho nhóm nhạy cảm"
+            imgKhuyenNghi_1.image = UIImage(named: "ic_mask_orange")
+            imgKhuyenNghi_2.image = UIImage(named: "ic_air_purifier_red")
+            imgKhuyenNghi_3.image = UIImage(named: "ic_close_window")
+            imgKhuyenNghi_4.image = UIImage(named: "ic_bike_red")
+            lblKhuyenNghi.text = "Các nhóm nhạy cảm nên đeo mặt nạ khi ra ngoài"
+        }
+        if (curAQI > 150) {
+            view1_2.backgroundColor = UIColor(red: 224/255, green: 155/255, blue: 155/255, alpha: 1) //Do nhat.
+            view1_1.backgroundColor = UIColor(red: 228/255, green: 41/255, blue: 60/255, alpha: 1) //Do dam.
+            imgFace.image = UIImage(named: "ic_mask")
+            lblAdvice.text = "Có hại cho sức khoẻ"
+            imgKhuyenNghi_1.image = UIImage(named: "ic_mask_red")
+            imgKhuyenNghi_2.image = UIImage(named: "ic_air_purifier_red")
+            imgKhuyenNghi_3.image = UIImage(named: "ic_close_window")
+            imgKhuyenNghi_4.image = UIImage(named: "ic_bike_red")
+            lblKhuyenNghi.text = "Đeo mặt nạ khi ra ngoài"
+        }
+        
+        //Hiển thị thông số của 3 ngày trước đó
+        lblThu1.text = curNgay1
+        lblThu2.text = curNgay2
+        lblThu3.text = curNgay3
+        
+        //Khuyến nghị về sức khoẻ
+        lblValueSO2.text = String(curSO2) + "μg/m3"
+        lblValueCO2.text = String(curCO2) + "μg/m3"
+        lblValueO3.text = String(curO3) + "μg/m3"
+        lblValueCO.text = String(curCO) + "μg/m3"
+        
         //UI Lịch Sử
         lblGio.layer.borderColor = UIColor.darkText.cgColor
         lblGio.layer.borderWidth = 1.0
@@ -65,6 +169,43 @@ class DetailReport: UIViewController {
         isDateBarSelected = false
         setHourBarChart(name: gioArr, value: valueGioArr)
     }
+    
+    //Button action khuyến nghị về sức khoẻ (click vào từng image)
+    @IBAction func acKhuyenNghi_1(_ sender: UIButton) {
+        if (curAQI > 0 && curAQI <= 50) {
+            lblKhuyenNghi.text = "Mở cửa sổ để đưa không khí sạch và trong lành vào nhà"
+        }
+        if (curAQI > 50 && curAQI <= 100) {
+            lblKhuyenNghi.text = "Đóng cửa sổ để tránh không khí bẩn bên ngoài"
+        }
+        if (curAQI > 100 && curAQI <= 150) {
+            lblKhuyenNghi.text = "Các nhóm nhạy cảm nên đeo mặt nạ khi ra ngoài"
+        }
+        if (curAQI > 150) {
+            lblKhuyenNghi.text = "Đeo mặt nạ khi ra ngoài"
+        }
+    }
+    @IBAction func acKhuyenNghi_2(_ sender: UIButton) {
+        if (curAQI > 0 && curAQI <= 50) {
+            lblKhuyenNghi.text = "Tận hưởng các hoạt động ngoài trời"
+        }
+        if (curAQI > 50 && curAQI <= 100) {
+            lblKhuyenNghi.text = "Các nhóm nhạy cảm nên giảm tập thể dục ngoài trời"
+        }
+        if (curAQI > 100 && curAQI <= 150) {
+            lblKhuyenNghi.text = "Chạy máy lọc không khí"
+        }
+        if (curAQI > 150) {
+            lblKhuyenNghi.text = "Chạy máy lọc không khí"
+        }
+    }
+    @IBAction func acKhuyenNghi_3(_ sender: UIButton) {
+        lblKhuyenNghi.text = "Đóng cửa sổ để tránh không khí bẩn bên ngoài"
+    }
+    @IBAction func acKhuyenNghi_4(_ sender: UIButton) {
+        lblKhuyenNghi.text = "Tránh tập thể dục ngoài trời"
+    }
+    
     
     //Biểu đồ Hour
     func setHourBarChart(name:[String], value:[Double]) {
@@ -223,6 +364,8 @@ class DetailReport: UIViewController {
         setDateBarChart(name: dateArr, value: valueDateArr)
         myBarChartView.reloadInputViews()
     }
+    
+    
 }
 
 //Collection View
